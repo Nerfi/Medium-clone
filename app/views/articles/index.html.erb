@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Have a look at our articles</h1>
+  <div class="row">
+    <% @articles.each do |article| %>
+    <div class="col-12 col-md-6 col-lg-3">
+        <h3><%= article.title %></h3>
+        <h3><%= article.description %></h3>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
