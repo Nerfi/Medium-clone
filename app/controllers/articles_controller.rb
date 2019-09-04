@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
       @query = params[:search]
       @articles = Article.where("title LIKE '%#{params[:query]}%'")
       authorize @articles
+
     else
 
     @articles = policy_scope(Article).order(created_at: :desc)

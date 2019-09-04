@@ -23,6 +23,7 @@ class ArticlePolicy < ApplicationPolicy
 
   end
 
+
   def update?
     user_is_owner?
     #record.user == user
