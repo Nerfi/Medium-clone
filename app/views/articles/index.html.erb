@@ -3,8 +3,17 @@
   <div class="row">
     <% @articles.each do |article| %>
     <div class="col-12 col-md-6 col-lg-3">
-        <h3><%= article.title %></h3>
-        <h3><%= article.description %></h3>
+        <h1><%= article.title %></h1>
+        <p><%= article.description %></p>
+        <% if policy(article).create? %>
+        <%= link_to "New article", new_article_path %>
+        <% end %>
+        <% if policy(article).update? %>
+        <%= link_to "Update article", edit_article_path(article) %>
+        <% end %>
+
+       <p>Created by:<%= article.user.email %></p>
+
     </div>
     <% end %>
   </div>
@@ -13,4 +22,13 @@
 
 
 
+<div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @articles.count %> articles out of our <%= Article.count %> on our website.</p>
+      <% else %>
+        <p>All <%= Article.count %> articles.</p>
+      <% end %>
+    </div>
+  </div>
 

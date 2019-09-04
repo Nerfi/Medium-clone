@@ -4,12 +4,30 @@
     <h1>Medium 2.0 brings <strong>written  skills</strong> to <strong>creative people</strong>!</h1>
     <p>Change somebody's life and learn from the best</p>
     <%= link_to "Write a story", new_article_path, class: "btn btn-flat" %>
+    <br>
+
+    <!-- Search form -->
+    <%= simple_form_for :search, url: articles_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" placeholder="try Juan" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+<% end %>
+
+
 
   </div>
 </div>
 
 
+
+
+
+
 <div class="container">
+  <h2 class="steps">Easy To use just 3 simple steps!</h2>
 
  <div class="cards">
 
