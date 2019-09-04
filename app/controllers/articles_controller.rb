@@ -3,7 +3,9 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @articles = Article.all
+    @articles = policy_scope(Article).order(created_at: :desc)
+
+
 
   end
 
@@ -15,14 +17,19 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    authorize  @article
 
   end
 
   def create
 
     @article = Article.new(article_params)
+    @article.save
+    @article.user = current_user
+    authorize @article
+
     if @article.save
-      redirect_to articles_path(@articles)
+      redirect_to articles_path(@articles), notice: 'article was created'
 
     else
       render :new

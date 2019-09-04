@@ -18,7 +18,7 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def show?
-    #everyone can see a restaurant
+    #everyone can see an article
     return true
 
   end
