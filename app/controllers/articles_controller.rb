@@ -23,10 +23,12 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       redirect_to articles_path(@articles)
+
     else
       render :new
+
     end
-    @article.errors
+
 
   end
 

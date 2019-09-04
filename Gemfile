@@ -9,6 +9,9 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'boostrap-sass', '~> 0.0.2'
+gem 'faker', '~> 2.2', '>= 2.2.1'
+gem 'pundit'
+
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
