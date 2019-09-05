@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
 
 
   def show
-    authorize @article
+    #authorize @article
 
 
    # @article = Article.find(params[:id])

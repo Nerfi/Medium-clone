@@ -11,11 +11,6 @@ class ArticlePolicy < ApplicationPolicy
     #everyone
 
   end
-  def search?
-    return true
-
-  end
-
 
 
 
