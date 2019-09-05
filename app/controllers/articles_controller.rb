@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show,:edit,:update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index,:show]
 
   def index
     #raise
@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     if params[:query].present? # we call the hash params
       @query = params[:query]
       @articles = Article.where("title LIKE '%#{params[:query]}%'")
+      #authorize @articles
       #authorize [:articles,:title,:query]
 
 
@@ -24,7 +25,7 @@ class ArticlesController < ApplicationController
 
 
   def show
-
+    authorize @article
 
 
    # @article = Article.find(params[:id])
