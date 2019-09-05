@@ -11,6 +11,13 @@ class ArticlePolicy < ApplicationPolicy
     #everyone
 
   end
+  def search?
+    return true
+
+  end
+
+
+
 
   def create?
     return new?
@@ -43,8 +50,6 @@ class ArticlePolicy < ApplicationPolicy
     record.user ==  user
 
   end
-
-
 
 
 

@@ -1,16 +1,21 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show,:edit,:update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
-    if params[:search].present? # we call the hash params
-      @query = params[:search]
+    #raise
+
+
+
+    if params[:query].present? # we call the hash params
+      @query = params[:query]
       @articles = Article.where("title LIKE '%#{params[:query]}%'")
-      authorize @articles
+      #authorize [:articles,:title,:query]
+
 
     else
-
     @articles = policy_scope(Article).order(created_at: :desc)
+    #authorize @articles
   end
 
 
@@ -19,8 +24,10 @@ class ArticlesController < ApplicationController
 
 
   def show
-    #@article = Article.find(params[:id])
 
+
+
+    #@article = Article.find(params[:id])
   end
 
   def new
