@@ -3,7 +3,7 @@
   <div class="row">
     <% @articles.each do |article| %>
     <div class="col-12 col-md-6 col-lg-3">
-        <h1><%= article.title %></h1>
+        <h1><%= link_to article.title, article_path(article) %></h1>
         <p><%= article.description %></p>
         <% if policy(article).create? %>
         <%= link_to "New article", new_article_path %>
