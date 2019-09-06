@@ -3,8 +3,12 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
    include Pundit
-    after_action :verify_authorized, except: [:index, :show],  unless: :skip_pundit?
-    after_action :verify_policy_scoped, only:  [:show], unless: :skip_pundit?
+    after_action :verify_authorized, except: [:index],  unless: :skip_pundit?
+
+    after_action :verify_policy_scoped, except:  [:index,:show, :new, :create], unless: :skip_pundit?
+
+
+
     #when I add to the line 7, the :index action I have an error,Pundit::PolicyScopingNotPerformedError in ArticlesController#index
 
 

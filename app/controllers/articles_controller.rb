@@ -25,14 +25,12 @@ class ArticlesController < ApplicationController
 
 
   def show
-    #authorize @article
 
 
-   # @article = Article.find(params[:id])
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
     authorize  @article
 
   end
@@ -40,7 +38,7 @@ class ArticlesController < ApplicationController
   def create
 
     @article = Article.new(article_params)
-    @article.save
+
     @article.user = current_user
     authorize @article
 
@@ -57,6 +55,7 @@ class ArticlesController < ApplicationController
 
   def edit
     #@article = Article.find(params[:id])
+
 
   end
 
@@ -84,7 +83,7 @@ class ArticlesController < ApplicationController
   end
 
   def set_article
-    @article = Article.find(params[:id])
+   authorize @article = Article.find(params[:id])
 
   end
 
