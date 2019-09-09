@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 
     if params[:query].present? # we call the hash params
       @query = params[:query]
-      @articles = Article.where("title LIKE '%#{params[:query]}%'")
+      @articles = Article.where("title ILIKE ?", "%#{params[:query]}%")
       #authorize @articles
       #authorize [:articles,:title,:query]
 
