@@ -1,5 +1,7 @@
-<%= simple_form_for [@article, @review] do |f| %>
+<%= simple_form_for([ article, review],  remote: true ) do |f| %>
 
-  <%= f.input :content %>
+  <%= f.input :content, as: :text %>
   <%= f.submit "add a review", class: "btn btn-primary" %>
 <% end %>
+
+
