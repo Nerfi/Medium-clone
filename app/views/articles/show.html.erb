@@ -8,8 +8,14 @@
 
 
 
+
     </div>
 
   </div>
+        <% if policy(Article).create? %>
+        <%= link_to "New article", new_article_path %>
+        <% end %>
+
+
 </div>
 

@@ -1,18 +1,41 @@
+<div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @articles.count %> articles out of our <%= Article.count %> on our website.</p>
+      <% else %>
+        <p>All <%= Article.count %> articles.</p>
+      <% end %>
+    </div>
+  </div>
+
+
+
 <div class="container">
   <h1>Have a look at our articles</h1>
   <div class="row">
     <% @articles.each do |article| %>
     <div class="col-12 col-md-6 col-lg-3">
-        <h1><%= link_to article.title, article_path(article) %></h1>
+      <% if article.photo? %>
+      <% background_url = cl_image_path article.photo, width: 400, height: 500, crop: :fill%>
+      <% else  %>
+      <% background_url = 'https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=375&q=80' %>
+      <% end %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url('<%= background_url %>');">
+      <div class="card-description">
+        <h2><%= link_to article.title, article_path(article) %></h2>
         <p><%= article.description %></p>
-        <% if policy(article).create? %>
-        <%= link_to "New article", new_article_path %>
-        <% end %>
+      </div>
+
+
+
+      </div>
+
         <% if policy(article).update? %>
-        <%= link_to "Update article", edit_article_path(article) %>
+        <%= link_to "Update ", edit_article_path(article) %>
         <% end %>
         <% if policy(article).destroy? %>
-        <%= link_to 'Destroy Article', article, method: :delete, data:{ confirm: 'Are you sure ?'}  %>
+        <%= link_to 'Destroy ', article, method: :delete, data:{ confirm: 'Are you sure ?'}  %>
         <% end %>
 
 
@@ -24,14 +47,4 @@
 </div>
 
 
-
-<div class="row">
-    <div class="col">
-      <% if @query %>
-        <p>You searched for <strong><%= @query %></strong>. We found <%= @articles.count %> articles out of our <%= Article.count %> on our website.</p>
-      <% else %>
-        <p>All <%= Article.count %> articles.</p>
-      <% end %>
-    </div>
-  </div>
 
