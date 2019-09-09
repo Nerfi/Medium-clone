@@ -25,6 +25,9 @@ class ArticlesController < ApplicationController
 
 
   def show
+    #we have to initialize always the review on the controller where
+    #we want to display it controller and action
+    @review = Review.new
 
 
 
