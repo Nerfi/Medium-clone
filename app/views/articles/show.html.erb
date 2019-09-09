@@ -3,6 +3,8 @@
     <div class="col-12 col-lg-7">
         <h1>Have a look at <%= @article.title %></h1>
         <p><%= @article.description %></p>
+        <%= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
+
 
 
 
