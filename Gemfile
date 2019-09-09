@@ -11,6 +11,9 @@ gem 'redis'
 gem 'boostrap-sass', '~> 0.0.2'
 gem 'faker', '~> 2.2', '>= 2.2.1'
 gem 'pundit'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+
 
 
 gem 'autoprefixer-rails'

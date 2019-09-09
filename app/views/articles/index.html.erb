@@ -11,6 +11,9 @@
         <% if policy(article).update? %>
         <%= link_to "Update article", edit_article_path(article) %>
         <% end %>
+        <% if policy(article).destroy? %>
+        <%= link_to 'Destroy Article', article, method: :delete, data:{ confirm: 'Are you sure ?'}  %>
+        <% end %>
 
 
 

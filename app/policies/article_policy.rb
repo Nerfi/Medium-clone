@@ -37,6 +37,7 @@ class ArticlePolicy < ApplicationPolicy
   def destroy?
     user_is_owner?
 
+
   end
 
   private

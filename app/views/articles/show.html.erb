@@ -10,9 +10,4 @@
 
   </div>
 </div>
-        <% if policy(Article).destroy? %>
-        <%= link_to 'Destroy Article', article, method: :delete, data:{ confirm: 'Are you sure ?'}  %>
-        <% end %>
-<% if policy(Article).create? %>
-  <%= link_to "New restaurant", new_article_path %>
-<% end %>
+
