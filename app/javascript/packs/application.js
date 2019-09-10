@@ -1,5 +1,5 @@
 import "bootstrap";
 
-import { selectOption } from '../components/click-able';
+import { selectOption } from './components/click-able';
 
 selectOption();

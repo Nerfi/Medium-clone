@@ -7,8 +7,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
     @article = Article.find(params[:article_id])
+    @review = Review.new(review_params)
     @review.article = @article
 
       if @review.save
