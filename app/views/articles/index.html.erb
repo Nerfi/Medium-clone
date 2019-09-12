@@ -26,13 +26,7 @@
         <h2><%= link_to article.title, article_path(article) %></h2>
         <p><%= article.description %></p>
 
-      </div>
-
-
-
-      </div>
-
-        <% if policy(article).update? %>
+          <% if policy(article).update? %>
         <%= link_to "Update ", edit_article_path(article) %>
         <% end %>
         <div data-article-id= "<%= article.id %>">
@@ -40,6 +34,13 @@
             <%= link_to 'Destroy ', article, method: :delete, remote: true ,data:{ confirm: 'Are you sure ?'}  %>
          <% end %>
         </div>
+
+      </div>
+
+
+
+      </div>
+
 
 
 

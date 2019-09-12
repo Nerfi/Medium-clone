@@ -29,10 +29,7 @@
     <ul class="list-group">
       <% @article.reviews.each do |review| %>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-       <span class="badge badge-primary badge-pill">
 
-
-       </span>
        <%= render 'reviews/show', review: review %>
        <%#= review.content %>
     </li>
