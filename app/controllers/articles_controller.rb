@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
 
 
   def show
+
     #we have to initialize always the review on the controller where
     #we want to display it controller and action
     @review = Review.new
@@ -45,6 +46,7 @@ class ArticlesController < ApplicationController
 
     @article.user = current_user
     authorize @article
+
 
     if @article.save
       redirect_to articles_path(@articles), notice: 'article was created'
@@ -67,7 +69,13 @@ class ArticlesController < ApplicationController
    # @article = Article.find(params[:id])
     @article.update(article_params)
 
-    redirect_to article_path(@article)
+    if @article.update(article_params)
+      redirect_to @article, notice: "your article was update!"
+    else
+      render :edit
+    end
+
+   # redirect_to article_path(@article)
 
   end
 

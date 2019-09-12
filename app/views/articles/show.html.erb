@@ -27,13 +27,14 @@
     <p>Be the first to let a review for: <strong><%= @article.title %></strong> </p>
     <% else %>
     <ul class="list-group">
-      <% @article.reviews.each do |article| %>
+      <% @article.reviews.each do |review| %>
     <li class="list-group-item d-flex justify-content-between align-items-center">
        <span class="badge badge-primary badge-pill">
 
 
        </span>
-       <%= review.content %>
+       <%= render 'reviews/show', review: review %>
+       <%#= review.content %>
     </li>
 
  <% end %>

@@ -1,10 +1,5 @@
 class ReviewsController < ApplicationController
-
-  def new
-    @article = Article.find(params[:article_id])
-    @review = Review.new
-
-  end
+before_action :set_article, only: [:edit,:update, :destroy]
 
   def create
     @article = Article.find(params[:article_id])
@@ -33,6 +28,12 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:content)
+
+  end
+  def set_article
+    @article = Article.find(params[:id])
+    authorize @article
+
 
   end
 end
