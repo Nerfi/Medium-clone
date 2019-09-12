@@ -3,21 +3,19 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index,:show]
 
   def index
-
-
-
-
+    policy_scope(Article)
     if params[:query].present? # we call the hash params
       @query = params[:query]
       @articles = Article.where("title ILIKE ?", "%#{params[:query]}%")
-      #authorize @articles
-      #authorize [:articles,:title,:query]
+
+
 
 
     else
     @articles = policy_scope(Article).order(created_at: :desc)
     #authorize @articles
   end
+
 
 
 

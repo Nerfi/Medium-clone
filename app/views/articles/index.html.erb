@@ -25,6 +25,7 @@
       <div class="card-description">
         <h2><%= link_to article.title, article_path(article) %></h2>
         <p><%= article.description %></p>
+
       </div>
 
 
@@ -34,9 +35,12 @@
         <% if policy(article).update? %>
         <%= link_to "Update ", edit_article_path(article) %>
         <% end %>
-        <% if policy(article).destroy? %>
-        <%= link_to 'Destroy ', article, method: :delete, data:{ confirm: 'Are you sure ?'}  %>
-        <% end %>
+        <div data-article-id= "<%= article.id %>">
+           <% if policy(article).destroy? %>
+            <%= link_to 'Destroy ', article, method: :delete, remote: true ,data:{ confirm: 'Are you sure ?'}  %>
+         <% end %>
+        </div>
+
 
 
 
