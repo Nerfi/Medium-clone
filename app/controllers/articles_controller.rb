@@ -102,7 +102,7 @@ class ArticlesController < ApplicationController
   def create_pictures
   images = params.dig(:article, :pictures) || []
   images.each do |image|
-    @article.pictures.create(image: image)
+    @article.pictures.create(photo: image)
   end
 end
 
