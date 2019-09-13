@@ -9,6 +9,9 @@
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
 
+      <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
+
+
     <%= f.submit "create and article", class: "btn btn-primary" %>
   <% end %>
 

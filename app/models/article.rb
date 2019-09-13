@@ -5,6 +5,8 @@ class Article < ApplicationRecord
 
 
   mount_uploader :photo, PhotoUploader
+  #adding relationship between article and picture 1:N
+  has_many :pictures, dependent: :destroy
 
   has_many :reviews, dependent: :destroy
 end

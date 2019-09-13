@@ -47,6 +47,8 @@ class ArticlesController < ApplicationController
 
 
     if @article.save
+      create_pictures
+
       redirect_to articles_path(@articles), notice: 'article was created'
 
     else
@@ -94,6 +96,15 @@ class ArticlesController < ApplicationController
 
   def set_article
    authorize @article = Article.find(params[:id])
+
+  end
+
+  def create_pictures
+    images = params.dig(:articles,:pictures) || []
+    images.each do |image|
+      @article.pictures.create(image: image)
+
+    end
 
   end
 
