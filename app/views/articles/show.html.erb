@@ -5,6 +5,18 @@
         <p><%= @article.description %></p>
         <%= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %>
 
+        <h5>Photos</h5>
+        <ul>
+          <li>
+           <% @article.pictures.each do |picture| %>
+          <li><%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %></li>
+
+
+           <% end %>
+
+          </li>
+        </ul>
+
 
 
 

@@ -100,12 +100,12 @@ class ArticlesController < ApplicationController
   end
 
   def create_pictures
-    images = params.dig(:articles,:pictures) || []
-    images.each do |image|
-      @article.pictures.create(image: image)
-
-    end
-
+  images = params.dig(:article, :pictures) || []
+  images.each do |image|
+    @article.pictures.create(image: image)
   end
+end
+
+
 
 end
