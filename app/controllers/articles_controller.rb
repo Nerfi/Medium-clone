@@ -105,6 +105,7 @@ class ArticlesController < ApplicationController
   images.each do |image|
     @article.pictures.create(photo: image)
   end
+
 end
 
 

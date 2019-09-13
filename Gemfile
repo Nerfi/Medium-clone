@@ -13,6 +13,7 @@ gem 'faker', '~> 2.2', '>= 2.2.1'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'omniauth-facebook'
 
 
 

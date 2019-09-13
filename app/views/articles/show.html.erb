@@ -9,7 +9,7 @@
         <ul>
           <li>
            <% @article.pictures.each do |picture| %>
-          <li><%= cl_image_tag(picture.photo, width: 400, height: 300, crop: :fill) %></li>
+          <li><%= cl_image_tag(picture.photo, width: 200, height: 300, crop: :fill) %></li>
 
 
            <% end %>
