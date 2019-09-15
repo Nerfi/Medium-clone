@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
 
     else
     @articles = policy_scope(Article).order(created_at: :desc)
+    @articles = Article.all # esta linea esta aqui ya que antes no se porque no he podido ver todos los articles cuando no habia iniciado session.
     #authorize @articles
   end
 

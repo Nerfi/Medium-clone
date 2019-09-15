@@ -5,7 +5,7 @@ before_action :set_article, only: [:edit,:update, :destroy]
     @article = Article.find(params[:article_id])
     @review = Review.new(review_params)
     @review.article = @article
-    authorize @article
+      authorize @article
 
 
       if @review.save
