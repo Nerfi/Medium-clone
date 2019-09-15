@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
 
       create_pictures
 
-      redirect_to articles_path(@articles), notice: 'article was created'
+      redirect_to articles_path(@article), notice: 'article was created'
 
     else
       render :new

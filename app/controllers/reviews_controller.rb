@@ -5,6 +5,8 @@ before_action :set_article, only: [:edit,:update, :destroy]
     @article = Article.find(params[:article_id])
     @review = Review.new(review_params)
     @review.article = @article
+    authorize @article
+
 
       if @review.save
         respond_to do |format|
@@ -22,6 +24,13 @@ before_action :set_article, only: [:edit,:update, :destroy]
     end
 
   end
+
+
+  #def ski_pundit?
+    #return true if params[:action] == 'create'
+   # super #fallback to the original method
+
+  #end
 
 
   private
