@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users,
-  ontrollers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
   resources :articles do
