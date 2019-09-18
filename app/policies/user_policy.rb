@@ -1,12 +1,14 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+     scope..where.not(id: user.id)
+
 
     end
 
     def index?
       return true
+
 
     end
 
